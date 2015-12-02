@@ -13,6 +13,8 @@ Also available as [AngularJS directive](https://github.com/mistic100/angular-jqc
 http://mistic100.github.io/jQCloud
 
 ## Changelog
+3.0.1
+- bugfix
 
 3.0.0
 - modernizing and streamlining build

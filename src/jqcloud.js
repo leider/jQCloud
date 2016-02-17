@@ -1,3 +1,11 @@
+/*!
+ * jQCloud
+ * Copyright 2011 Luca Ongaro (http://www.lucaongaro.eu)
+ * Copyright 2013 Daniel White (http://www.developerdan.com)
+ * Copyright 2014 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
+ * Licensed under MIT (http://opensource.org/licenses/MIT)
+ */
+
 /*jshint -W055 *//* non standard constructor name */
 
 (function ($) {
@@ -151,20 +159,7 @@
 
       // Attach window resize event
       if (this.options.autoResize) {
-        $(window).on('resize', throttle(function () {
-          var new_size = {
-            width: this.$element.width(),
-            height: this.$element.height()
-          };
-
-          if (new_size.width !== this.options.width || new_size.height !== this.options.height) {
-            this.options.width = new_size.width;
-            this.options.height = new_size.height;
-            this.data.aspect_ratio = this.options.width / this.options.height;
-
-            this.update(this.word_array);
-          }
-        }, 50, this));
+        $(window).on('resize', throttle(this.resize, 50, this));
       }
     },
 
@@ -441,6 +436,21 @@
 
       this.clearTimeouts();
       this.drawWordCloud();
+    },
+
+    resize: function() {
+      var new_size = {
+        width: this.$element.width(),
+        height: this.$element.height()
+      };
+
+      if (new_size.width !== this.options.width || new_size.height !== this.options.height) {
+        this.options.width = new_size.width;
+        this.options.height = new_size.height;
+        this.data.aspect_ratio = this.options.width / this.options.height;
+
+        this.update(this.word_array);
+      }
     }
   };
 

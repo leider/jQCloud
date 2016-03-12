@@ -1,5 +1,5 @@
 /*!
- * jQCloud 3.0.2
+ * jQCloud 3.0.3
  * Copyright 2011 Luca Ongaro (http://www.lucaongaro.eu)
  * Copyright 2013 Daniel White (http://www.developerdan.com)
  * Copyright 2016 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
@@ -98,7 +98,7 @@
             }), this.data.timeouts = {};
         },
         overlapping: function(a, b) {
-            return Math.abs(2 * a.left + a.width - 2 * b.left - b.width) < a.width + b.width && Math.abs(2 * a.top + a.height - 2 * b.top - b.height) < a.height + b.height ? !0 : !1;
+            return Math.abs(2 * a.left + a.width - 2 * b.left - b.width) < a.width + b.width && Math.abs(2 * a.top + a.height - 2 * b.top - b.height) < a.height + b.height;
         },
         hitTest: function(elem) {
             for (var i = 0, l = this.data.placed_words.length; l > i; i++) if (this.overlapping(elem, this.data.placed_words[i])) return !0;
@@ -183,7 +183,7 @@
                 width: this.$element.width(),
                 height: this.$element.height()
             };
-            (new_size.width !== this.options.width || new_size.height !== this.options.height) && (this.options.width = new_size.width, 
+            new_size.width === this.options.width && new_size.height === this.options.height || (this.options.width = new_size.width, 
             this.options.height = new_size.height, this.data.aspect_ratio = this.options.width / this.options.height, 
             this.update(this.word_array));
         }

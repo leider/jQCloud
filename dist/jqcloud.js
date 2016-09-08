@@ -84,7 +84,7 @@
             this.data.aspect_ratio = this.options.width / this.options.height, this.clearTimeouts(), 
             this.data.namespace = (this.$element.attr("id") || Math.floor(1e6 * Math.random()).toString(36)) + "_word_", 
             this.$element.addClass("jqcloud"), "static" === this.$element.css("position") && this.$element.css("position", "relative"), 
-            this.createTimeout($.proxy(this.drawWordCloud, this), 10), this.options.autoResize && $(window).on("resize", throttle(this.resize, 50, this));
+            this.drawWordCloud(), this.options.autoResize && $(window).on("resize", throttle(this.resize, 50, this));
         },
         createTimeout: function(callback, time) {
             var timeout = setTimeout($.proxy(function() {
@@ -101,20 +101,20 @@
             return Math.abs(2 * a.left + a.width - 2 * b.left - b.width) < a.width + b.width && Math.abs(2 * a.top + a.height - 2 * b.top - b.height) < a.height + b.height;
         },
         hitTest: function(elem) {
-            for (var i = 0, l = this.data.placed_words.length; l > i; i++) if (this.overlapping(elem, this.data.placed_words[i])) return !0;
+            for (var i = 0, l = this.data.placed_words.length; i < l; i++) if (this.overlapping(elem, this.data.placed_words[i])) return !0;
             return !1;
         },
         drawWordCloud: function() {
             var i, l;
             if (this.$element.children('[id^="' + this.data.namespace + '"]').remove(), 0 !== this.word_array.length) {
-                for (i = 0, l = this.word_array.length; l > i; i++) this.word_array[i].weight = parseFloat(this.word_array[i].weight, 10);
+                for (i = 0, l = this.word_array.length; i < l; i++) this.word_array[i].weight = parseFloat(this.word_array[i].weight, 10);
                 if (this.word_array.sort(function(a, b) {
                     return b.weight - a.weight;
                 }), this.data.max_weight = this.word_array[0].weight, this.data.min_weight = this.word_array[this.word_array.length - 1].weight, 
                 this.data.colors = [], this.colorGenerator) for (i = 0; i < this.options.steps; i++) this.data.colors.push(this.colorGenerator(i + 1));
                 if (this.data.sizes = [], this.sizeGenerator) for (i = 0; i < this.options.steps; i++) this.data.sizes.push(this.sizeGenerator(this.options.width, this.options.height, i + 1));
                 if (this.options.delay > 0) this.drawOneWordDelayed(); else {
-                    for (i = 0, l = this.word_array.length; l > i; i++) this.drawOneWord(i, this.word_array[i]);
+                    for (i = 0, l = this.word_array.length; i < l; i++) this.drawOneWord(i, this.word_array[i]);
                     "function" == typeof this.options.afterCloudRender && this.options.afterCloudRender.call(this.$element);
                 }
             }

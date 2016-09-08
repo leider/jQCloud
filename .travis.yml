@@ -1,0 +1,6 @@
+language: node_js
+
+# Use faster Docker architecture on Travis. (http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/)
+sudo: false
+
+node_js: "6"

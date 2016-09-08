@@ -109,7 +109,7 @@ $(function() {
     afterCloudRender: function(){
       QUnit.test('Words render when delay is positive and container is visible', function(assert) {
         assert.ok($("#container4").is(':visible'), "Container is visible");
-        assert.ok($("#container4 span").size(), "Words render");
+        assert.ok($("#container4 span").length, "Words render");
       });
     }
   });
@@ -117,7 +117,7 @@ $(function() {
   setTimeout(function(){
     QUnit.test('Words do not render when delay is positive and container is not visible',function(assert){
       assert.ok(!$("#container4").is(':visible'), "Container is not visible");
-      assert.ok($("#container4 span").size()===0, "There should be no spans in the container");
+      assert.ok($("#container4 span").length===0, "There should be no spans in the container");
       // now set container4 to visible so that the corresponding visibility test executes
       $("#container4").show();
     });

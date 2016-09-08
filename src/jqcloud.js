@@ -154,9 +154,7 @@
         this.$element.css('position', 'relative');
       }
 
-      // Delay execution so that the browser can render the page before the computatively intensive word cloud drawing
-      this.createTimeout($.proxy(this.drawWordCloud, this), 10);
-
+      this.drawWordCloud();
       // Attach window resize event
       if (this.options.autoResize) {
         $(window).on('resize', throttle(this.resize, 50, this));

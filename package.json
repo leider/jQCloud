@@ -1,6 +1,6 @@
 {
   "name": "jqcloud-npm",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "author": [
     {
       "name": "Luca Ongaro",
@@ -19,7 +19,7 @@
       "homepage": "https://www.github.com/leider"
     }
   ],
-  "description": "this fork (leider) is based on the work by \"Mistic\" to make it available on npm and to modernize the build. jQuery plugin for drawing neat word clouds that actually look like clouds",
+  "description": "DEPRECATED! - Now that \"Mistic\" published to npm and updated grunt everything is fine enough for me. Please use thet version from now on. This fork (leider) is based on the work by \"Mistic\" to make it available on npm and to modernize the build. jQuery plugin for drawing neat word clouds that actually look like clouds",
   "main": "dist/jqcloud.js",
   "dependencies": {
     "jquery": ">= 2"

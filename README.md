@@ -1,5 +1,7 @@
 # jQCloud
 
+## This fork is dead! - Go back to mistic100.
+
 [![Bower version](https://badge.fury.io/bo/jqcloud2.svg)](http://badge.fury.io/bo/jqcloud2)
 
 ## Beautiful word clouds with jQuery
@@ -13,6 +15,9 @@ Also available as [AngularJS directive](https://github.com/mistic100/angular-jqc
 http://mistic100.github.io/jQCloud
 
 ## Changelog
+4.0.0
+- declared this fork dead.
+
 3.0.1
 - bugfix
 
